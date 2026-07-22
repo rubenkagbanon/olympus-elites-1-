@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm -v)",
+      "Bash(corepack --version)",
+      "Bash(corepack pnpm *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "Read(//tmp/**)",
+      "Bash(kill %1)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/)",
+      "Bash(jobs -l)",
+      "Bash(pkill -f \"vite --host\")",
+      "Bash(curl -s http://localhost:3002/)",
+      "Bash(curl -s http://localhost:3002/src/components/Layout.tsx)",
+      "Bash(mkdir -p /tmp/docx_extract)",
+      "Bash(unzip -o \"Cahier_des_Charges_Plateforme_Olympus_Elites_v4.docx\" -d /tmp/docx_extract)",
+      "Read(//tmp/docx_extract/**)",
+      "Bash(node -e ' *)",
+      "Read(//c/tmp/docx_extract/**)",
+      "Read(//c/Users/ruben/AppData/Local/Temp/docx_extract/**)",
+      "Bash(git --version)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)"
+    ]
+  }
+}

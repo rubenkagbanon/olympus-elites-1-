@@ -1,0 +1,333 @@
+/* ============================================================
+   OLYMPUS ELITES — "Dark Arena" Design System
+   Design Movement: Sports Tech meets African Championship Energy
+   Color: Near-black + Electric Orange + White
+   Typography: Oswald (display) + Nunito Sans (body) + Space Mono (data)
+   Layout: Mobile-first, bottom nav, dark immersive panels
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Custom Olympus tokens */
+  --color-orange: var(--orange);
+  --color-orange-dim: var(--orange-dim);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-teal: var(--teal);
+}
+
+:root {
+  /* Olympus Dark Arena palette */
+  --orange: oklch(0.72 0.18 45);
+  --orange-dim: oklch(0.55 0.14 45);
+  --teal: oklch(0.55 0.10 195);
+  --gold: oklch(0.78 0.14 85);
+
+  /* Core semantic colors */
+  --background: oklch(0.10 0.015 265);
+  --foreground: oklch(0.96 0.005 65);
+  --card: oklch(0.15 0.015 265);
+  --card-foreground: oklch(0.96 0.005 65);
+  --popover: oklch(0.14 0.015 265);
+  --popover-foreground: oklch(0.96 0.005 65);
+  --primary: oklch(0.72 0.18 45);
+  --primary-foreground: oklch(0.10 0.015 265);
+  --secondary: oklch(0.20 0.015 265);
+  --secondary-foreground: oklch(0.90 0.005 65);
+  --muted: oklch(0.18 0.012 265);
+  --muted-foreground: oklch(0.60 0.010 265);
+  --accent: oklch(0.72 0.18 45);
+  --accent-foreground: oklch(0.10 0.015 265);
+  --destructive: oklch(0.60 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.18 45);
+  --radius: 0.5rem;
+
+  /* Surface levels */
+  --surface: oklch(0.15 0.015 265);
+  --surface-2: oklch(0.20 0.015 265);
+
+  /* Charts */
+  --chart-1: oklch(0.72 0.18 45);
+  --chart-2: oklch(0.55 0.10 195);
+  --chart-3: oklch(0.78 0.14 85);
+  --chart-4: oklch(0.65 0.15 155);
+  --chart-5: oklch(0.60 0.18 300);
+
+  /* Sidebar */
+  --sidebar: oklch(0.12 0.015 265);
+  --sidebar-foreground: oklch(0.90 0.005 65);
+  --sidebar-primary: oklch(0.72 0.18 45);
+  --sidebar-primary-foreground: oklch(0.10 0.015 265);
+  --sidebar-accent: oklch(0.18 0.015 265);
+  --sidebar-accent-foreground: oklch(0.90 0.005 65);
+  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar-ring: oklch(0.72 0.18 45);
+}
+
+/* Dark is the default — no .dark override needed */
+.dark {
+  --background: oklch(0.10 0.015 265);
+  --foreground: oklch(0.96 0.005 65);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .font-mono, .score, .stat-number {
+    font-family: 'Space Mono', monospace;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* === Olympus Custom Components === */
+
+  /* Orange left-border accent card */
+  .card-arena {
+    background: var(--card);
+    border-left: 3px solid var(--orange);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card-arena:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px oklch(0 0 0 / 40%);
+  }
+
+  /* Live pulse indicator */
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    animation: pulse-live 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 oklch(0.72 0.18 45 / 60%); }
+    50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 0 6px oklch(0.72 0.18 45 / 0%); }
+  }
+
+  /* Section label style: 01 / LIVE CENTER */
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .section-label::after {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--orange);
+  }
+
+  /* Orange glow button */
+  .btn-arena {
+    background: var(--orange);
+    color: oklch(0.10 0.015 265);
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius);
+    border: none;
+    transition: all 0.2s ease;
+    font-weight: 600;
+  }
+  .btn-arena:hover {
+    background: oklch(0.78 0.18 45);
+    box-shadow: 0 0 20px oklch(0.72 0.18 45 / 40%);
+    transform: translateY(-1px);
+  }
+
+  /* Gradient text */
+  .text-gradient-orange {
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Status badges */
+  .badge-live {
+    background: oklch(0.72 0.18 45 / 20%);
+    color: var(--orange);
+    border: 1px solid oklch(0.72 0.18 45 / 40%);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .badge-upcoming {
+    background: oklch(0.55 0.10 195 / 20%);
+    color: oklch(0.75 0.10 195);
+    border: 1px solid oklch(0.55 0.10 195 / 40%);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .badge-done {
+    background: oklch(0.50 0 0 / 20%);
+    color: oklch(0.60 0 0);
+    border: 1px solid oklch(0.50 0 0 / 30%);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* Score display */
+  .score-display {
+    font-family: 'Space Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  /* Diagonal divider */
+  .divider-slash {
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), transparent);
+    margin: 1.5rem 0;
+  }
+
+  /* Bottom nav (mobile) */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: oklch(0.12 0.015 265 / 95%);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid oklch(1 0 0 / 8%);
+    z-index: 50;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.30 0.015 265);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+  }
+}
