@@ -3,8 +3,19 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import path from "node:path";
 import { defineConfig } from "vite";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin()];
+const plugins = [
+  react(),
+  tailwindcss(),
+  jsxLocPlugin(),
+  ViteImageOptimizer({
+    png: { quality: 75 },
+    jpeg: { quality: 75 },
+    jpg: { quality: 75 },
+    webp: { quality: 75 },
+  }),
+];
 
 export default defineConfig({
   plugins,
