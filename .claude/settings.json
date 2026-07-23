@@ -20,7 +20,8 @@
       "Read(//c/Users/ruben/AppData/Local/Temp/docx_extract/**)",
       "Bash(git --version)",
       "Bash(gh --version)",
-      "Bash(gh auth *)"
+      "Bash(gh auth *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3003/)"
     ]
   }
 }
